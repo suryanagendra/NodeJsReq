@@ -1,26 +1,32 @@
 "use strict"
-
 const express = require('express');
 
 const cors = require('cors');
 
-const str2json = require('string-to-json');
-
 const server = express();
 
-var obj = [
-    {name: 'surya', age: 22},
-    {name: 'bhanu', age: 25},
-    {name: 'anil', age: 17},
-    {name: 'bharath', age: 20},
-];
-
 server.use(cors());
-var body = '';
-server.get('/api/users',(req, resp) => {
 
-    resp.send(obj);
+server.get('/api/users/get', (req, resp) => {
+
+    resp.send('Data fetched');
 });
+
+server.post('/api/users/post', (req, resp) => {
+
+    resp.send('Data Inserted');
+});
+
+server.put('/api/users/put', (req, resp) => {
+
+    resp.send('Data Updated');
+});
+
+server.delete('/api/users/delete', (req, resp) => {
+
+    resp.send('Data Deleted');
+});
+
 
 server.listen(3030, () => {
     console.log("server started with port number 3030")
